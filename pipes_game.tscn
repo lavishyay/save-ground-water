@@ -1,0 +1,272 @@
+[gd_scene load_steps=31 format=3 uid="uid://cj01dx8ma0bsf"]
+
+[ext_resource type="Script" path="res://pipes_game.gd" id="1_06ewr"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_24itd"]
+[ext_resource type="Texture2D" uid="uid://c63j4am7j38hv" path="res://HOUSE (4) (1).png" id="2_aac4b"]
+[ext_resource type="Script" path="res://character_body_2d_2.gd" id="4_gnmo1"]
+[ext_resource type="Texture2D" uid="uid://c7avisvu7awso" path="res://corner pipe.png" id="4_hl5s2"]
+[ext_resource type="AudioStream" uid="uid://dlp3kkt8mx8fn" path="res://audio/mixkit-on-or-off-light-switch-tap-2585.wav" id="5_3bd6t"]
+[ext_resource type="Texture2D" uid="uid://cqlwfyjf3eqsc" path="res://straight pipe.png" id="6_5aehd"]
+[ext_resource type="Script" path="res://character_body_2d_3.gd" id="7_lg324"]
+[ext_resource type="Texture2D" uid="uid://cjvl87trqh6fe" path="res://long straight pipe.png" id="8_f343b"]
+[ext_resource type="Script" path="res://label.gd" id="8_qeqxw"]
+[ext_resource type="Script" path="res://character_body_2d_4.gd" id="9_7lisp"]
+[ext_resource type="Texture2D" uid="uid://drh6uw4tsgeuo" path="res://angled pipe.png" id="9_trk3e"]
+[ext_resource type="Script" path="res://label_2.gd" id="10_7idud"]
+[ext_resource type="Script" path="res://label_4.gd" id="11_e34r2"]
+[ext_resource type="Texture2D" uid="uid://dhvejk1j5eq37" path="res://funnel.png" id="12_pftbo"]
+[ext_resource type="Script" path="res://character_body_2d_6.gd" id="13_n507a"]
+[ext_resource type="Texture2D" uid="uid://d333c0vl5jkk4" path="res://long thin pipe.png" id="14_caw4w"]
+[ext_resource type="Texture2D" uid="uid://f8weh4skvtmm" path="res://Frame 55.png" id="15_bt7tj"]
+[ext_resource type="Texture2D" uid="uid://mt7b0ypw4q37" path="res://Group_8__2_-removebg-preview.png" id="15_ciwhe"]
+[ext_resource type="Script" path="res://character_body_2d_7.gd" id="15_k3cnf"]
+[ext_resource type="Script" path="res://character_body_2d_5.gd" id="16_qokf1"]
+[ext_resource type="AudioStream" uid="uid://ds56ai10xxyix" path="res://win.wav" id="23_coag4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o7fwx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72emy"]
+size = Vector2(125.5, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3yqx"]
+size = Vector2(42, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0adn"]
+size = Vector2(215, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lms6a"]
+size = Vector2(51, 163.995)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ralu"]
+size = Vector2(116, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e48hm"]
+size = Vector2(245, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txqpd"]
+size = Vector2(117, 172.5)
+
+[node name="pipes_game" type="Node2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_06ewr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_aac4b")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+material = SubResource("CanvasItemMaterial_o7fwx")
+position = Vector2(-62, -52)
+input_pickable = true
+motion_mode = 1
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("1_24itd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_72emy")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+rotation = -1.5708
+scale = Vector2(0.072, 0.09)
+texture = ExtResource("4_hl5s2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+position = Vector2(62, 52)
+scale = Vector2(0.8, 0.8)
+stream = ExtResource("5_3bd6t")
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+position = Vector2(-211, -51)
+input_pickable = true
+motion_mode = 1
+script = ExtResource("4_gnmo1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_f3yqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
+scale = Vector2(0.095, 0.095)
+texture = ExtResource("6_5aehd")
+flip_h = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D2"]
+position = Vector2(62, 52)
+scale = Vector2(0.8, 0.8)
+stream = ExtResource("5_3bd6t")
+
+[node name="CharacterBody2D3" type="CharacterBody2D" parent="."]
+position = Vector2(-422, -102)
+input_pickable = true
+motion_mode = 1
+script = ExtResource("7_lg324")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_g0adn")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D3"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_f343b")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D3"]
+position = Vector2(62, 52)
+scale = Vector2(0.8, 0.8)
+stream = ExtResource("5_3bd6t")
+
+[node name="CharacterBody2D4" type="CharacterBody2D" parent="."]
+position = Vector2(-422, -102)
+input_pickable = true
+motion_mode = 1
+script = ExtResource("9_7lisp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4"]
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_lms6a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D4"]
+texture = ExtResource("9_trk3e")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D4"]
+position = Vector2(62, 52)
+scale = Vector2(0.8, 0.8)
+stream = ExtResource("5_3bd6t")
+
+[node name="CharacterBody2D5" type="CharacterBody2D" parent="."]
+position = Vector2(-422, -102)
+input_pickable = true
+motion_mode = 1
+script = ExtResource("16_qokf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D5"]
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_4ralu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D5"]
+rotation = 0.0523599
+scale = Vector2(1.08763, 1.05882)
+texture = ExtResource("12_pftbo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D5"]
+position = Vector2(62, 52)
+scale = Vector2(0.8, 0.8)
+stream = ExtResource("5_3bd6t")
+
+[node name="CharacterBody2D6" type="CharacterBody2D" parent="."]
+position = Vector2(-422, -102)
+input_pickable = true
+motion_mode = 1
+script = ExtResource("13_n507a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D6"]
+shape = SubResource("RectangleShape2D_e48hm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CharacterBody2D6"]
+scale = Vector2(1.08763, 1.05882)
+texture = ExtResource("14_caw4w")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D6"]
+position = Vector2(62, 52)
+scale = Vector2(0.8, 0.8)
+stream = ExtResource("5_3bd6t")
+
+[node name="CharacterBody2D7" type="CharacterBody2D" parent="."]
+position = Vector2(-422, -102)
+input_pickable = true
+motion_mode = 1
+script = ExtResource("15_k3cnf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D7"]
+shape = SubResource("RectangleShape2D_txqpd")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D7"]
+rotation = -1.5708
+scale = Vector2(0.253262, 0.29)
+texture = ExtResource("15_ciwhe")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D7"]
+position = Vector2(62, 52)
+scale = Vector2(0.8, 0.8)
+stream = ExtResource("5_3bd6t")
+
+[node name="CornerPipe" type="Sprite2D" parent="."]
+position = Vector2(892.778, 475)
+rotation = 1.5708
+scale = Vector2(0.03, 0.024)
+texture = ExtResource("4_hl5s2")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 583.0
+offset_top = 229.0
+offset_right = 849.0
+offset_bottom = 374.0
+theme_override_font_sizes/font_size = 100
+text = "Retry"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(902, 557)
+scale = Vector2(0.0636605, 0.071758)
+texture = ExtResource("15_bt7tj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(179, 463.751)
+scale = Vector2(0.1, 0.024)
+texture = ExtResource("6_5aehd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(971, 610.751)
+rotation = 1.5708
+scale = Vector2(0.1, 0.024)
+texture = ExtResource("6_5aehd")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "asd"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_qeqxw")
+
+[node name="Label2" type="Label" parent="."]
+custom_minimum_size = Vector2(600, 0)
+offset_left = 83.0
+offset_top = 325.0
+offset_right = 123.0
+offset_bottom = 348.0
+theme_override_font_sizes/font_size = 200
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_7idud")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Label2"]
+stream = ExtResource("23_coag4")
+
+[node name="Label3" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Rainwater Harvesting"
+
+[node name="Label4" type="Label" parent="."]
+custom_minimum_size = Vector2(900, 0)
+layout_direction = 2
+offset_left = 374.0
+offset_right = 1274.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_font_sizes/font_size = 56
+horizontal_alignment = 2
+script = ExtResource("11_e34r2")
+
+[connection signal="input_event" from="CharacterBody2D" to="CharacterBody2D" method="_on_input_event"]
+[connection signal="input_event" from="CharacterBody2D2" to="CharacterBody2D2" method="_on_input_event"]
+[connection signal="input_event" from="CharacterBody2D3" to="CharacterBody2D3" method="_on_input_event"]
+[connection signal="input_event" from="CharacterBody2D4" to="CharacterBody2D4" method="_on_input_event"]
+[connection signal="input_event" from="CharacterBody2D5" to="CharacterBody2D5" method="_on_input_event"]
+[connection signal="input_event" from="CharacterBody2D6" to="CharacterBody2D6" method="_on_input_event"]
+[connection signal="input_event" from="CharacterBody2D7" to="CharacterBody2D7" method="_on_input_event"]

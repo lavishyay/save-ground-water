@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=3 uid="uid://cj01dx8ma0bsf"]
+
+[ext_resource type="Texture2D" uid="uid://uxa0e2ngi50b" path="res://back.png" id="1_0ymhw"]
+[ext_resource type="Script" path="res://pipes_game.gd" id="1_06ewr"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_24itd"]
+[ext_resource type="Texture2D" uid="uid://dq7ftb6xmucu6" path="res://images (1).png" id="1_ww38h"]
+[ext_resource type="Script" path="res://sprite_2d_2.gd" id="2_jrs0x"]
+[ext_resource type="Texture2D" uid="uid://ds4qai3ofqhov" path="res://pipe.png" id="3_g6fgg"]
+[ext_resource type="Script" path="res://character_body_2d_2.gd" id="4_gnmo1"]
+[ext_resource type="Script" path="res://sprite_2d.gd" id="4_lbyr5"]
+[ext_resource type="Texture2D" uid="uid://dclansr8ydw1a" path="res://tank.jpeg" id="5_vct7y"]
+[ext_resource type="Script" path="res://label.gd" id="8_qeqxw"]
+[ext_resource type="Script" path="res://label_2.gd" id="10_7idud"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o7fwx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72emy"]
+size = Vector2(125.5, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3yqx"]
+size = Vector2(119, 102)
+
+[node name="pipes_game" type="Node2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_06ewr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_0ymhw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(83, 325)
+scale = Vector2(0.752747, 0.752747)
+texture = ExtResource("1_ww38h")
+script = ExtResource("2_jrs0x")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+material = SubResource("CanvasItemMaterial_o7fwx")
+input_pickable = true
+motion_mode = 1
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("1_24itd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(62.25, 52)
+shape = SubResource("RectangleShape2D_72emy")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(63.6866, 52)
+rotation = 1.54985
+scale = Vector2(0.507463, 0.507463)
+texture = ExtResource("3_g6fgg")
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+input_pickable = true
+motion_mode = 1
+script = ExtResource("4_gnmo1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+position = Vector2(211.25, 51.25)
+shape = SubResource("RectangleShape2D_f3yqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
+position = Vector2(213.75, 53.25)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_g6fgg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(519.25, 577.75)
+scale = Vector2(0.531111, 0.531111)
+texture = ExtResource("5_vct7y")
+script = ExtResource("4_lbyr5")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "asd"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_qeqxw")
+
+[node name="Label2" type="Label" parent="."]
+custom_minimum_size = Vector2(600, 0)
+offset_left = 83.0
+offset_top = 325.0
+offset_right = 123.0
+offset_bottom = 348.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_7idud")
+
+[node name="Label3" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Rainwater Harvesting"
+
+[connection signal="input_event" from="CharacterBody2D" to="CharacterBody2D" method="_on_input_event"]
+[connection signal="input_event" from="CharacterBody2D2" to="CharacterBody2D2" method="_on_input_event"]

@@ -1,0 +1,15 @@
+~ this_is_a_node_title
+
+Uncle: [[Hi|Hello|Howdy]], welcome back to the village.
+Uncle: Since you are here, do you know what Rainwater Harvesting is?
+- Yes!
+	Uncle: Great! Then you'll help me build it.
+- No, can you tell me?
+	Uncle: Rainwater Harvesting usually directs rainwater from your roof to a tank. Don't worry, you'll understand when you help me!
+Uncle: You will hear a click if it's in right place. If you don't connect the pipes quickly, you will lose too much water!  => END
+- Start again => this_is_a_node_title
+- End the conversation => END
+
+=> END
+
+
